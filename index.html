@@ -1,215 +1,165 @@
-<!DOCTYPE HTML>
-<!--
-	Hyperspace by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Mahsun Abuzeyitoglu</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		<script src="https://kit.fontawesome.com/3b6cac02e5.js" crossorigin="anonymous"></script>
-	</head>
-	<body class="is-preload">
+<!DOCTYPE html>
+<html lang="tr">
 
-		<!-- Sidebar -->
-			<section id="sidebar">
-				<div class="inner">
-					<nav>
-						<ul>
-							<li><a href="#intro">Welcome</a></li>
-							<li><a href="#one">Who am I?</a></li>
-							<li><a href="#two">What i do</a></li>
-							
-							<li><a href="#three">Get in touch</a></li>
-						</ul>
-					</nav>
-				</div>
-			</section>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahsun Abuzeyitoğlu - iOS Developer</title>
+    <!-- Varsayılan stil dosyan (senin verdiğin style.css) -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+    <!-- Küçük bir override: main-storefront-container'in absolute olmaması için -->
+    <style>
+        /* Eğer style.css içinde main-storefront-container absolute olarak ayarlanmışsa bunu geçersiz kıl */
+        .main-storefront-container {
+            position: static !important;
+            bottom: auto !important;
+            left: auto !important;
+            height: auto !important;
+            padding: 20px 0 !important;
+            display: block !important;
+            box-sizing: border-box;
+            overflow: visible !important;
+        }
 
-				<!-- Intro -->
-					<section id="intro" class="wrapper style1 fullscreen fade-up">
-						<div class="inner">
-							<h1>Hi , I am Mahsun</h1>
-							<p>I am Junior Mobile Application Developer</a>.</p>
-							<ul class="actions">
-								<li><a href="#one" class="button scrolly">Learn more</a></li>
-							</ul>
-						</div>
-					</section>
+        /* app-header içindeki ikonun boyutunu garantiye al */
+        .app-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 12px;
+            object-fit: cover;
+        }
 
-				<!-- One -->
+        /* Mobilde biraz daha küçük ikon */
+        @media (max-width: 768px) {
+            .app-icon {
+                width: 48px;
+                height: 48px;
+            }
+        }
+    </style>
+</head>
 
-				<section id="one" class="wrapper style3 fade-up">
-					<div class="inner">
-						<h2>Who am i?</h2>
-						<p> Hello i am Mahsun from Hatay/Turkey. A newly graduated , an excited and dreamer computer engineer. 
-							The day I met the first computer at the age of 10, I decided to become an engineer.
-							 And everything started with "Hello world!" :) </br>
-							 About 7 years i working (i mean learning) on software technologies.
-							 About 2 years I'm obsessed with making things and even more obsessed with making things better and i hope i will never lose this sickness.
-							</p>
-						<div class="features">
-							<section>
-						
-								<h3>Swift</h3>
-								<p>I have experiences on UIkit , CocoaPod , MVVM , MVC, Delegation & Protocol , Firebase , UI/UX and more  </p>
-							</section>
-							<section>
-								
-								<h3>Android</h3>
-								<p>I have experiences on Java , (these days learning Kotlin) , OOP , Firebase , UI/UX , Desing Partners , APIs and more </p>
-							</section>
-							<section>
-								
-								<h3>Firebase</h3>
-								<p>I have experiences on Firestore , Cloud Messaging Functions , Realtime Database , Crashylist </p>
-							</section>
-							
-						</div>
-						
-					</div>
-				</section>
+<body>
 
-			
+    <!-- ANA EKRAN -->
+    <div class="main-screen">
+        <div class="container">
+            <div class="contact-icons">
+                <a href="tel:+905551234567" class="icon-link"><i class="fas fa-phone"></i></a>
+                <a href="mailto:mahsuni@example.com" class="icon-link"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/in/mahsuniabuzeyitoglu" target="_blank" class="icon-link"><i
+                        class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/mahsuni" target="_blank" class="icon-link"><i class="fab fa-github"></i></a>
+            </div>
 
-				<!-- Two -->
-				<section id="two" class="wrapper style2 spotlights">
-					<section>
-						<a href="#" class="image"><img src="images/pic01.jpg" alt="" data-position="center center" /></a>
-						<div class="content">
-							<div class="inner">
-								<h2>VayeApp</h2>
-								<p>This app makes communication between student and university stuf.
+            <div class="profile-info">
+                <h1 class="first-name">MAHSUN</h1>
+                <h2 class="last-name">ABUZEYITOGLU</h2>
+                <p class="title">iOS Developer</p>
+            </div>
 
-								</br> Its kinda social media app</p>
-								<ul class="actions">
-									<li><a href="vayeapp.html" class="button">Learn more</a></li>
-								
-								</ul>
-								<ul class="actions">
-									<li><a href="https://play.google.com/store/apps/details?id=com.gargisoft.iste&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1" class="button">Get it on Google Play</a></li>
-									<li><a href="https://apps.apple.com/tr/app/kamp%C3%BCs-online/id1513652946?l=tr" class="button">Download on the App Store</a></li>
+            <a href="#about" class="scroll-down">
+                <i class="fas fa-arrow-down"></i>
+            </a>
+        </div>
+    </div>
 
-								</ul>
-								
-								
-							</div>
-						</div>
-					</section>
-					<section>
-						<a href="#" class="image"><img src="images/pic02.jpg" alt="" data-position="top center" /></a>
-						<div class="content">
-							<div class="inner">
-								<h2>Feugiat consequat</h2>
-								<p>Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus.</p>
-								<ul class="actions">
-									<li><a href="generic.html" class="button">Learn more</a></li>									
-								</ul>
-								<ul class="actions">
-									<li><a href="https://play.google.com/store/apps/details?id=com.rzn.gargi&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1" class="button">Get it on Google Play</a></li>
-								</ul>
-							</div>
-						</div>
-					</section>
-					<section>
-						<a href="#" class="image"><img src="images/pic03.jpg" alt="" data-position="25% 25%" /></a>
-						<div class="content">
-							<div class="inner">
-								<h2>Ultricies aliquam</h2>
-								<p>Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus.</p>
-								<ul class="actions">
-									<li><a href="generic.html" class="button">Learn more</a></li>
-								</ul>
-							</div>
-						</div>
-					</section>
-				</section>
+    <!-- ABOUT -->
+    <div id="about" class="section about-section">
+        <div class="about-content-container">
+            <div class="about-text-column">
+                <h2 class="section-title">ABOUT ME</h2>
+                <p class="about-text">
+                    Merhaba, ben Mahsun Abuzeyitoğlu. iOS geliştirme alanında uzmanlaşmış bir profesyonelim.
+                    Mobil teknolojilere olan tutkum, kullanıcı deneyimini ön planda tutan, güçlü ve sezgisel uygulamalar
+                    geliştirmemi sağlıyor. SwiftUI, UIKit ve Swift gibi teknolojilere hakimim.
+                    Temiz kod yazma, sürekli öğrenme ve kendimi geliştirme konularında kendime güveniyorum.
+                </p>
+                <p class="about-text">
+                    Eğer yaratıcı ve zorlayıcı projelerde birlikte çalışabileceğim birini arıyorsanız, doğru yerdesiniz.
+                    Yeni fırsatları ve iş birliklerini her zaman değerlendirmeye açığım.
+                </p>
+            </div>
 
-				<!-- Three -->
-					<section id="three" class="wrapper style1 fade-up">
-						<div class="inner">
-							<h2>Get in touch</h2>
-							<p>Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus, lacus eget hendrerit bibendum, urna est aliquam sem, sit amet imperdiet est velit quis lorem.</p>
-							<div class="split style1">
-								<section>
-									<form method="post" action="#">
-										<div class="fields">
-											<div class="field half">
-												<label for="name">Name</label>
-												<input type="text" name="name" id="name" />
-											</div>
-											<div class="field half">
-												<label for="email">Email</label>
-												<input type="text" name="email" id="email" />
-											</div>
-											<div class="field">
-												<label for="message">Message</label>
-												<textarea name="message" id="message" rows="5"></textarea>
-											</div>
-										</div>
-										<ul class="actions">
-											<li><a href="" class="button submit">Send Message</a></li>
-										</ul>
-									</form>
-								</section>
-								<section>
-									<ul class="contact">
-										<li>
-											<h3>Address</h3>
-											<span>12345 Somewhere Road #654<br />
-											Nashville, TN 00000-0000<br />
-											USA</span>
-										</li>
-										<li>
-											<h3>Email</h3>
-											<a href="#">user@untitled.tld</a>
-										</li>
-										<li>
-											<h3>Phone</h3>
-											<span>(000) 000-0000</span>
-										</li>
-										<li>
-											<h3>Social</h3>
-											<ul class="icons">
-												<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-												<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-												<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-												<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-												<li><a href="#" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-											</ul>
-										</li>
-									</ul>
-								</section>
-							</div>
-						</div>
-					</section>
+            <div class="about-features-column">
+                <ul class="features-list">
+                    <li><i class="fas fa-check-circle feature-icon"></i> Swift & SwiftUI Uzmanı</li>
+                    <li><i class="fas fa-check-circle feature-icon"></i> Arayüz (UI/UX) Tasarımı</li>
+                    <li><i class="fas fa-check-circle feature-icon"></i> Git ile Versiyon Kontrolü</li>
+                    <li><i class="fas fa-check-circle feature-icon"></i> Çevik Metodolojiler</li>
+                    <li><i class="fas fa-check-circle feature-icon"></i> Rest API Entegrasyonu</li>
+                    <li><i class="fas fa-check-circle feature-icon"></i> Firebase & Core Data</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="my-work" class="section my-work-section">
+        <h2 class="section-title">MY WORK</h2>
 
-			</div>
+        <!-- App Header -->
+        <div class="app-header">
+            <img src="" alt="App Icon" class="app-icon" />
+            <div class="app-info">
+                <div class="app-name">Uygulama İsmi</div>
+                <div class="app-rating"><span class="rating-stars">⭐</span> <span class="rating-value">0</span></div>
+            </div>
+        </div>
 
-		<!-- Footer -->
-			<footer id="footer" class="wrapper style1-alt">
-				<div class="inner">
-					<ul class="menu">
-						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-					</ul>
-				</div>
-			</footer>
+        <!-- Screenshots / Storefront -->
+        <div class="app-grid-container">
+            <div class="loading-container">
+                <p class="loading-text">Uygulamalar yükleniyor...</p>
+                <div class="progress-bar"></div>
+            </div>
+            <div class="main-storefront-container"></div>
+        </div>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+    </div>
+    <script>
+        const appIds = ['389801252', '284882215', '333903271', '375380948', '497799835', '405045344', '1091189123', '123456789']; // istediğin kadar ekle
+        const countryCode = 'us';
+        const appGridContainer = document.querySelector('.app-grid-container');
 
-	</body>
+        async function fetchApp(appId) {
+            try {
+                const res = await fetch(`https://itunes.apple.com/lookup?id=${appId}&country=${countryCode}`);
+                const data = await res.json();
+                const app = data.results[0];
+                if (!app) return;
+
+                const appHTML = `
+        <div class="app-column">
+            <div class="app-header">
+                <img src="${app.artworkUrl512 || app.artworkUrl100}" class="app-icon" alt="${app.trackName}">
+                <div class="app-info">
+                    <div class="app-name">${app.trackName}</div>
+                    <div class="app-rating"><span class="rating-stars">⭐</span> ${app.averageUserRating || 0}</div>
+                </div>
+            </div>
+            <div class="storefront-container">
+                ${(app.screenshotUrls || []).map(url => `<img src="${url}" class="storefront-image" alt="${app.trackName} screenshot">`).join('')}
+            </div>
+        </div>
+        `;
+                appGridContainer.insertAdjacentHTML('beforeend', appHTML);
+
+                // Loading bar gizle
+                const loading = document.querySelector('.loading-container');
+                if (loading) loading.style.display = 'none';
+
+            } catch (err) {
+                console.error(err);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            appIds.forEach(id => fetchApp(id));
+        });
+    </script>
+
+
+</body>
+
 </html>
