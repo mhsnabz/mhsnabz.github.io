@@ -202,6 +202,45 @@
             }
         }
 
+        @media (max-width: 480px) {
+            .main-screen {
+                padding: 10px 0;
+            }
+
+            .container {
+                padding: 0 15px;
+                gap: 25px;
+            }
+
+            .contact-icons {
+                gap: 15px;
+            }
+
+            .icon-link {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+            }
+
+            .profile-info {
+                max-width: calc(100vw - 30px);
+            }
+
+            .first-name,
+            .last-name {
+                font-size: clamp(1.8rem, 9vw, 3.5rem);
+                letter-spacing: clamp(-2px, -0.3vw, -1px);
+                line-height: 0.8;
+                margin: 5px 0;
+            }
+
+            .title {
+                font-size: clamp(0.8rem, 3vw, 1.1rem);
+                letter-spacing: clamp(0.5px, 0.1vw, 1px);
+                margin-top: 10px;
+            }
+        }
+
         /* Çok küçük ekranlar için ekstra optimizasyon */
         @media (max-width: 360px) {
             .container {
