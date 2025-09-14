@@ -2,56 +2,521 @@
 <html lang="tr">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Mahsun Abuzeyitoğlu - iOS Developer</title>
-    <!-- Varsayılan stil dosyan (senin verdiğin style.css) -->
-    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500;700;900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-    <!-- Küçük bir override: main-storefront-container'in absolute olmaması için -->
     <style>
-        /* Eğer style.css içinde main-storefront-container absolute olarak ayarlanmışsa bunu geçersiz kıl */
-        .main-storefront-container {
-            position: static !important;
-            bottom: auto !important;
-            left: auto !important;
-            height: auto !important;
-            padding: 20px 0 !important;
-            display: block !important;
-            box-sizing: border-box;
-            overflow: visible !important;
+        /* ----------------- Temel (About/Profile) - SENİN ORJİNAL STİLLERİNİN ÇOĞUNLUĞUNU KORUDUM ----------------- */
+        :root {
+            --yellow: #ffde17;
+            --bg: #f7f7f7;
+            --dark: #1a1a1a
         }
 
-        /* app-header içindeki ikonun boyutunu garantiye al */
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark);
+            background-color: var(--bg);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* MAIN SCREEN / PROFILE (korundu) */
+        /* --- Ana Ekran --- */
+        .main-screen {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 99;
+            color: #1a1a1a;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1400px;
+            padding: 0 80px;
+            box-sizing: border-box;
+        }
+
+        /* --- Sol Taraftaki İkonlar --- */
+        .contact-icons {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            z-index: 10;
+        }
+
+        .icon-link {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50px;
+            height: 50px;
+            background-color: #ffde17;
+            color: #1a1a1a;
+            border-radius: 50%;
+            text-decoration: none;
+            font-size: 20px;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .icon-link:hover {
+            transform: scale(1.1);
+        }
+
+        /* --- Profil Bilgileri --- */
+        .profile-info {
+            text-align: right;
+            line-height: 0.8;
+            white-space: nowrap;
+            margin: 75px;
+            /* İkonlar ve isim arasına boşluk ekler */
+        }
+
+        .first-name,
+        .last-name {
+            font-weight: 900;
+            letter-spacing: -6px;
+        }
+
+        .first-name {
+            margin: 0;
+            font-size: 8vw;
+        }
+
+        .last-name {
+            margin: 20px 0 0 0;
+            font-size: 8vw;
+            -webkit-text-stroke: 1px #1a1a1a;
+            color: transparent;
+        }
+
+        .title {
+            margin-top: 10px;
+            font-size: 1.5vw;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+
+
+        .profile-info {
+            text-align: right;
+            line-height: 0.8;
+            white-space: nowrap
+        }
+
+        .first-name,
+        .last-name {
+            font-weight: 900;
+            letter-spacing: -6px
+        }
+
+        .first-name {
+            margin: 0;
+            font-size: 8vw
+        }
+
+        .last-name {
+            margin: 20px 0 0 0;
+            font-size: 8vw;
+            -webkit-text-stroke: 1px var(--dark);
+            color: transparent
+        }
+
+        .title {
+            margin-top: 10px;
+            font-size: 1.5vw;
+            font-weight: 600;
+            letter-spacing: 2px
+        }
+
+        /* ---------------- About Section: desktop 70/30, mobile stacked ---------------- */
+        .about-section {
+            background-color: var(--dark);
+            color: #fff;
+            padding: 50px 20px;
+            box-sizing: border-box;
+        }
+
+        /* container: default desktop row */
+        .about-content-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 40px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* left text column ~70% */
+        .about-text-column {
+            flex: 0 0 70%;
+            max-width: 70%;
+            text-align: left;
+            box-sizing: border-box;
+        }
+
+        /* right features column ~30% */
+        .about-features-column {
+            flex: 0 0 30%;
+            max-width: 30%;
+            padding-top: 60px;
+            /* istersen azaltabilirsin */
+            box-sizing: border-box;
+        }
+
+        /* title + text */
+        .section-title {
+            font-size: clamp(20px, 3vw, 34px);
+            font-weight: 900;
+            margin-bottom: 18px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .about-text {
+            font-size: clamp(15px, 1.2vw, 18px);
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-weight: 400;
+            color: #fff;
+        }
+
+        /* features list */
+        .features-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .features-list li {
+            font-size: clamp(14px, 1.6vw, 16px);
+            font-weight: 500;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        /* feature icon */
+        .feature-icon {
+            color: var(--yellow);
+            flex-shrink: 0;
+            font-size: 1.1em;
+        }
+
+        /* ---------------- Mobile: stack columns, center text ---------------- */
+        @media (max-width: 768px) {
+            .about-section {
+                padding: 40px 18px;
+            }
+
+            .about-content-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 28px;
+            }
+
+            .about-text-column,
+            .about-features-column {
+                flex: 0 0 100%;
+                max-width: 100%;
+                text-align: center;
+                padding-top: 0;
+            }
+
+            /* features list center on mobile */
+            .features-list {
+                align-items: center;
+            }
+
+            .features-list li {
+                justify-content: center;
+                font-size: 16px;
+            }
+
+            .about-text {
+                font-size: 16px;
+            }
+
+            .section-title {
+                font-size: clamp(20px, 7.5vw, 36px);
+                letter-spacing: 4px;
+            }
+        }
+
+        /* ----------------- MY WORK (yeni, sorunsuz ve mobil uyumlu) ----------------- */
+        .my-work-section {
+            background-color: var(--bg);
+            padding: 60px 20px;
+            width: 100%;
+        }
+
+        .my-work-section .section-title {
+            color: var(--dark);
+            font-weight: 900;
+            font-size: 3vw;
+            margin: 0 0 40px 0;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            text-align: center;
+        }
+
+        /* app-grid: uygulamalar alt alta */
+        .app-grid-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            align-items: stretch;
+            /* app-column full-width */
+            padding: 0 20px;
+        }
+
+        /* her uygulama kartı (tam genişlik) */
+        .app-column {
+            width: 100%;
+            background: #fff;
+            border-radius: 14px;
+            padding: 20px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        /* header: ikon + isim + rating */
+        .app-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            width: 100%
+        }
+
         .app-icon {
             width: 64px;
             height: 64px;
             border-radius: 12px;
             object-fit: cover;
+            flex-shrink: 0
         }
 
-        /* Mobilde biraz daha küçük ikon */
-        @media (max-width: 768px) {
-            .app-icon {
-                width: 48px;
-                height: 48px;
+        .app-info {
+            display: flex;
+            flex-direction: column
+        }
+
+        .app-name {
+            font-weight: 700;
+            font-size: 1.05rem
+        }
+
+        .app-rating {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #888
+        }
+
+        .rating-stars {
+            color: var(--yellow);
+            font-size: 1.05rem
+        }
+
+        /* ---------- Carousel container styling ---------- */
+        /* görsellerin arka planını isteğe göre değiştir */
+        .storefront-wrapper {
+            background: #f0f0f0;
+            /* burayı istediğin renge değiştir */
+            border-radius: 12px;
+            padding: 14px;
+        }
+
+        /* carousel kendisi (kaydırılabilir alan) */
+        .storefront-container {
+            display: flex;
+            gap: 18px;
+            /* görseller arası boşluk */
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            padding: 6px;
+        }
+
+        /* telefon oranı 9:16, responsive width ve min-width */
+        .storefront-image {
+            aspect-ratio: 9/16;
+            width: 220px;
+            /* masaüstü görsel genişliği */
+            min-width: 160px;
+            border-radius: 10px;
+            object-fit: cover;
+            flex-shrink: 0;
+            scroll-snap-align: center;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+            transition: transform .25s ease;
+        }
+
+        .storefront-image:hover {
+            transform: scale(1.03)
+        }
+
+        /* fallback-card (eğer hiç görsel yoksa) */
+        .storefront-empty {
+            width: 220px;
+            min-width: 160px;
+            height: calc(220px * (16/9));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            background: linear-gradient(180deg, #e9e9e9, #f5f5f5);
+            color: #666;
+            font-weight: 600;
+        }
+
+        /* Loading / progress */
+        .loading-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 0
+        }
+
+        .progress-bar {
+            width: 220px;
+            height: 6px;
+            background: #222;
+            border-radius: 6px;
+            overflow: hidden;
+            position: relative
+        }
+
+        .progress-bar::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 45%;
+            background: var(--yellow);
+            animation: move-progress 1.4s linear infinite
+        }
+
+        @keyframes move-progress {
+            0% {
+                transform: translateX(-120%)
             }
+
+            100% {
+                transform: translateX(220%)
+            }
+        }
+
+        /* küçük ekranlar için */
+        @media(max-width:900px) {
+            .app-icon {
+                width: 56px;
+                height: 56px
+            }
+
+            .storefront-image {
+                width: 180px;
+                min-width: 140px
+            }
+
+            .storefront-empty {
+                width: 180px;
+                min-width: 140px;
+                height: calc(180px * (16/9))
+            }
+        }
+
+        @media(max-width:520px) {
+            .container {
+                padding: 0 20px
+            }
+
+            .storefront-image {
+                width: 70vw;
+                min-width: 140px
+            }
+
+            .storefront-empty {
+                width: 70vw;
+                min-width: 140px;
+                height: calc(70vw * (16/9))
+            }
+
+            .first-name,
+            .last-name {
+                font-size: 12vw
+            }
+
+            .app-column {
+                padding: 16px
+            }
+
+            .my-work-section {
+                padding: 40px 10px
+            }
+        }
+
+        /* fotoğrafların scrollbar görünümü için küçük stil */
+        .storefront-container::-webkit-scrollbar {
+            height: 8px
+        }
+
+        .storefront-container::-webkit-scrollbar-thumb {
+            background: rgba(0, 0, 0, 0.12);
+            border-radius: 8px
         }
     </style>
 </head>
 
 <body>
 
-    <!-- ANA EKRAN -->
+    <!-- MAIN / PROFILE (senin orjinal markup'a çok benzer) -->
     <div class="main-screen">
         <div class="container">
             <div class="contact-icons">
-                <a href="tel:+905551234567" class="icon-link"><i class="fas fa-phone"></i></a>
-                <a href="mailto:mahsuni@example.com" class="icon-link"><i class="fas fa-envelope"></i></a>
-                <a href="https://www.linkedin.com/in/mahsuniabuzeyitoglu" target="_blank" class="icon-link"><i
+                <a class="icon-link" href="tel:+905551234567"><i class="fas fa-phone"></i></a>
+                <a class="icon-link" href="mailto:mahsuni@example.com"><i class="fas fa-envelope"></i></a>
+                <a class="icon-link" href="https://www.linkedin.com/in/mahsuniabuzeyitoglu" target="_blank"><i
                         class="fab fa-linkedin-in"></i></a>
-                <a href="https://github.com/mahsuni" target="_blank" class="icon-link"><i class="fab fa-github"></i></a>
+                <a class="icon-link" href="https://github.com/mahsuni" target="_blank"><i class="fab fa-github"></i></a>
             </div>
 
             <div class="profile-info">
@@ -59,106 +524,140 @@
                 <h2 class="last-name">ABUZEYITOGLU</h2>
                 <p class="title">iOS Developer</p>
             </div>
-
-            <a href="#about" class="scroll-down">
-                <i class="fas fa-arrow-down"></i>
-            </a>
         </div>
+
+        <a href="#about" class="scroll-down"><i class="fas fa-arrow-down"></i></a>
     </div>
 
     <!-- ABOUT -->
-    <div id="about" class="section about-section">
+    <section id="about" class="about-section">
         <div class="about-content-container">
             <div class="about-text-column">
                 <h2 class="section-title">ABOUT ME</h2>
                 <p class="about-text">
                     Merhaba, ben Mahsun Abuzeyitoğlu. iOS geliştirme alanında uzmanlaşmış bir profesyonelim.
                     Mobil teknolojilere olan tutkum, kullanıcı deneyimini ön planda tutan, güçlü ve sezgisel uygulamalar
-                    geliştirmemi sağlıyor. SwiftUI, UIKit ve Swift gibi teknolojilere hakimim.
-                    Temiz kod yazma, sürekli öğrenme ve kendimi geliştirme konularında kendime güveniyorum.
-                </p>
-                <p class="about-text">
-                    Eğer yaratıcı ve zorlayıcı projelerde birlikte çalışabileceğim birini arıyorsanız, doğru yerdesiniz.
-                    Yeni fırsatları ve iş birliklerini her zaman değerlendirmeye açığım.
+                    geliştirmemi sağlıyor. SwiftUI, UIKit ve Swift gibi teknolojilere hakimim.Merhaba, ben Mahsun
+                    Abuzeyitoğlu. iOS geliştirme alanında uzmanlaşmış bir profesyonelim. Mobil teknolojilere olan
+                    tutkum, kullanıcı deneyimini ön planda tutan, güçlü ve sezgisel uygulamalar geliştirmemi sağlıyor.
+                    SwiftUI, UIKit ve Swift gibi teknolojilere hakimim.
                 </p>
             </div>
-
             <div class="about-features-column">
                 <ul class="features-list">
                     <li><i class="fas fa-check-circle feature-icon"></i> Swift & SwiftUI Uzmanı</li>
                     <li><i class="fas fa-check-circle feature-icon"></i> Arayüz (UI/UX) Tasarımı</li>
                     <li><i class="fas fa-check-circle feature-icon"></i> Git ile Versiyon Kontrolü</li>
-                    <li><i class="fas fa-check-circle feature-icon"></i> Çevik Metodolojiler</li>
-                    <li><i class="fas fa-check-circle feature-icon"></i> Rest API Entegrasyonu</li>
-                    <li><i class="fas fa-check-circle feature-icon"></i> Firebase & Core Data</li>
                 </ul>
             </div>
         </div>
-    </div>
-    <div id="my-work" class="section my-work-section">
+    </section>
+
+    <!-- MY WORK -->
+    <section id="my-work" class="my-work-section">
         <h2 class="section-title">MY WORK</h2>
 
-        <!-- App Header -->
-        <div class="app-header">
-            <img src="" alt="App Icon" class="app-icon" />
-            <div class="app-info">
-                <div class="app-name">Uygulama İsmi</div>
-                <div class="app-rating"><span class="rating-stars">⭐</span> <span class="rating-value">0</span></div>
-            </div>
-        </div>
-
-        <!-- Screenshots / Storefront -->
         <div class="app-grid-container">
-            <div class="loading-container">
+            <!-- Loading gösterilsin, sonradan JS tüm app fetch'leri bittikten sonra REMOVE edecek -->
+            <div class="loading-container" id="loading">
                 <p class="loading-text">Uygulamalar yükleniyor...</p>
-                <div class="progress-bar"></div>
+                <div class="progress-bar" aria-hidden="true"></div>
             </div>
-            <div class="main-storefront-container"></div>
+            <!-- JS buraya app-column'ları ekleyecek -->
         </div>
+    </section>
 
-    </div>
     <script>
-        const appIds = ['389801252', '284882215', '333903271', '375380948', '497799835', '405045344', '1091189123', '123456789']; // istediğin kadar ekle
+        /*
+          Notlar:
+          - appIds dizisine AppStore ID'lerini ekle.
+          - JS, her app için bir .app-column oluşturur ve .app-grid-container içine ekler.
+          - Tüm fetch'ler tamamlandığında loading elemanı DOM'dan tamamen kaldırılır.
+        */
+        const appIds = [
+            '389801252', // Instagram (örnek)
+            '284882215'  // Facebook (örnek)
+            // ekleyebilirsin...
+        ];
+
         const countryCode = 'us';
-        const appGridContainer = document.querySelector('.app-grid-container');
+        const appGrid = document.querySelector('.app-grid-container');
+        const loadingEl = document.getElementById('loading');
 
-        async function fetchApp(appId) {
-            try {
-                const res = await fetch(`https://itunes.apple.com/lookup?id=${appId}&country=${countryCode}`);
-                const data = await res.json();
-                const app = data.results[0];
-                if (!app) return;
+        function createAppColumn(app) {
+            // screenshot'ları kullan; yoksa artwork fallback
+            const screenshots = (app.screenshotUrls && app.screenshotUrls.length) ? app.screenshotUrls : (app.artworkUrl512 ? [app.artworkUrl512] : []);
+            const screenshotsHtml = (screenshots.length > 0)
+                ? screenshots.map(url => `<img loading="lazy" src="${url}" class="storefront-image" alt="${escapeHtml(app.trackName)} screenshot">`).join('')
+                : `<div class="storefront-empty">No screenshots</div>`;
 
-                const appHTML = `
-        <div class="app-column">
-            <div class="app-header">
-                <img src="${app.artworkUrl512 || app.artworkUrl100}" class="app-icon" alt="${app.trackName}">
-                <div class="app-info">
-                    <div class="app-name">${app.trackName}</div>
-                    <div class="app-rating"><span class="rating-stars">⭐</span> ${app.averageUserRating || 0}</div>
-                </div>
-            </div>
-            <div class="storefront-container">
-                ${(app.screenshotUrls || []).map(url => `<img src="${url}" class="storefront-image" alt="${app.trackName} screenshot">`).join('')}
-            </div>
+            const rating = (typeof app.averageUserRating === 'number') ? Number(app.averageUserRating).toFixed(2) : '0';
+
+            return `
+    <div class="app-column" data-appid="${escapeHtml(app.trackId || '')}">
+      <div class="app-header">
+        <img src="${escapeAttr(app.artworkUrl512 || app.artworkUrl100 || '')}" class="app-icon" alt="${escapeAttr(app.trackName || '')}">
+        <div class="app-info">
+          <div class="app-name">${escapeHtml(app.trackName || 'Uygulama İsmi')}</div>
+          <div class="app-rating"><span class="rating-stars">⭐</span> ${rating}</div>
         </div>
-        `;
-                appGridContainer.insertAdjacentHTML('beforeend', appHTML);
+      </div>
 
-                // Loading bar gizle
-                const loading = document.querySelector('.loading-container');
-                if (loading) loading.style.display = 'none';
+      <div class="storefront-wrapper">
+        <div class="storefront-container">
+          ${screenshotsHtml}
+        </div>
+      </div>
+    </div>
+  `;
+        }
 
+        // XSS güvenliği için basit kaçış fonksiyonları (client-side)
+        function escapeHtml(s) { return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;') }
+        function escapeAttr(s) { return String(s || '').replace(/"/g, '&quot;') }
+
+        async function fetchOneApp(id) {
+            try {
+                const url = `https://itunes.apple.com/lookup?id=${encodeURIComponent(id)}&country=${encodeURIComponent(countryCode)}`;
+                const res = await fetch(url);
+                if (!res.ok) throw new Error('network');
+                const data = await res.json();
+                if (!data.results || data.results.length === 0) throw new Error('no-app');
+                return data.results[0];
             } catch (err) {
-                console.error(err);
+                console.warn('App fetch error', id, err);
+                return null;
             }
         }
 
-        document.addEventListener('DOMContentLoaded', () => {
-            appIds.forEach(id => fetchApp(id));
-        });
-    </script>
+        async function initAllApps() {
+            // paralel fetch, ama render geldiği gibi ekle (kullanıcı beklemesin)
+            const promises = appIds.map(id => fetchOneApp(id));
+            const results = await Promise.all(promises);
 
+            // Render her biri (sıralı olarak, boş olanlar atlanır)
+            for (const app of results) {
+                if (app) {
+                    const html = createAppColumn(app);
+                    appGrid.insertAdjacentHTML('beforeend', html);
+                }
+            }
+
+            // Tüm işlemler bittiğinde loading elemanını DOM'dan kaldır
+            if (loadingEl && loadingEl.parentNode) {
+                loadingEl.parentNode.removeChild(loadingEl);
+            }
+
+            // (İsteğe bağlı) eğer hiç app eklenmediyse, bilgilendir
+            const anyAppAdded = results.some(a => a);
+            if (!anyAppAdded) {
+                appGrid.insertAdjacentHTML('beforeend', '<div style="padding:30px;text-align:center;color:#777">Uygulama verisi alınamadı veya geçersiz ID girildi.</div>');
+            }
+        }
+
+        // Başlat
+        document.addEventListener('DOMContentLoaded', initAllApps);
+    </script>
 
 </body>
 
