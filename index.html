@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Mahsun Abuzeyitoğlu - iOS Developer</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500;700;900&display=swap"
@@ -30,12 +30,14 @@
             background-color: var(--bg);
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
         }
 
         /* MAIN SCREEN / PROFILE (korundu) */
         /* --- Ana Ekran --- */
         .main-screen {
             height: 100vh;
+            min-height: 600px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -49,6 +51,20 @@
             transform: translateX(-50%);
             z-index: 99;
             color: #1a1a1a;
+            font-size: 24px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
         }
 
         .container {
@@ -80,11 +96,13 @@
             border-radius: 50%;
             text-decoration: none;
             font-size: 20px;
-            transition: transform 0.2s ease-in-out;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 4px 15px rgba(255, 222, 23, 0.3);
         }
 
         .icon-link:hover {
             transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(255, 222, 23, 0.5);
         }
 
         /* --- Profil Bilgileri --- */
@@ -93,7 +111,6 @@
             line-height: 0.8;
             white-space: nowrap;
             margin: 75px;
-            /* İkonlar ve isim arasına boşluk ekler */
         }
 
         .first-name,
@@ -104,60 +121,106 @@
 
         .first-name {
             margin: 0;
-            font-size: 8vw;
+            font-size: clamp(3rem, 8vw, 8rem);
         }
 
         .last-name {
             margin: 20px 0 0 0;
-            font-size: 8vw;
+            font-size: clamp(3rem, 8vw, 8rem);
             -webkit-text-stroke: 1px #1a1a1a;
             color: transparent;
         }
 
         .title {
             margin-top: 10px;
-            font-size: 1.5vw;
+            font-size: clamp(1rem, 1.5vw, 2rem);
             font-weight: 600;
             letter-spacing: 2px;
         }
 
+        /* Mobil için ana ekran düzenlemeleri */
+        @media (max-width: 768px) {
+            .main-screen {
+                min-height: 100vh;
+                padding: 20px 0;
+            }
 
-        .profile-info {
-            text-align: right;
-            line-height: 0.8;
-            white-space: nowrap
+            .container {
+                padding: 0 20px;
+                flex-direction: column;
+                gap: 40px;
+                justify-content: center;
+            }
+
+            .contact-icons {
+                flex-direction: row;
+                gap: 20px;
+                order: 2;
+            }
+
+            .icon-link {
+                width: 45px;
+                height: 45px;
+                font-size: 18px;
+            }
+
+            .profile-info {
+                text-align: center;
+                margin: 0;
+                order: 1;
+                white-space: normal;
+            }
+
+            .first-name,
+            .last-name {
+                font-size: clamp(2.5rem, 12vw, 5rem);
+                letter-spacing: -3px;
+            }
+
+            .title {
+                font-size: clamp(1rem, 4vw, 1.5rem);
+                letter-spacing: 1px;
+                margin-top: 15px;
+            }
+
+            .scroll-down {
+                bottom: 20px;
+                font-size: 20px;
+            }
         }
 
-        .first-name,
-        .last-name {
-            font-weight: 900;
-            letter-spacing: -6px
-        }
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+                gap: 30px;
+            }
 
-        .first-name {
-            margin: 0;
-            font-size: 8vw
-        }
+            .contact-icons {
+                gap: 15px;
+            }
 
-        .last-name {
-            margin: 20px 0 0 0;
-            font-size: 8vw;
-            -webkit-text-stroke: 1px var(--dark);
-            color: transparent
-        }
+            .icon-link {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+            }
 
-        .title {
-            margin-top: 10px;
-            font-size: 1.5vw;
-            font-weight: 600;
-            letter-spacing: 2px
+            .first-name,
+            .last-name {
+                font-size: clamp(2rem, 15vw, 4rem);
+                letter-spacing: -2px;
+            }
+
+            .title {
+                font-size: clamp(0.9rem, 5vw, 1.2rem);
+            }
         }
 
         /* ---------------- About Section: desktop 70/30, mobile stacked ---------------- */
         .about-section {
             background-color: var(--dark);
             color: #fff;
-            padding: 50px 20px;
+            padding: 60px 20px;
             box-sizing: border-box;
         }
 
@@ -187,7 +250,6 @@
             flex: 0 0 30%;
             max-width: 30%;
             padding-top: 60px;
-            /* istersen azaltabilirsin */
             box-sizing: border-box;
         }
 
@@ -238,13 +300,13 @@
         /* ---------------- Mobile: stack columns, center text ---------------- */
         @media (max-width: 768px) {
             .about-section {
-                padding: 40px 18px;
+                padding: 50px 20px;
             }
 
             .about-content-container {
                 flex-direction: column;
                 align-items: center;
-                gap: 28px;
+                gap: 30px;
             }
 
             .about-text-column,
@@ -267,11 +329,37 @@
 
             .about-text {
                 font-size: 16px;
+                text-align: center;
             }
 
             .section-title {
-                font-size: clamp(20px, 7.5vw, 36px);
-                letter-spacing: 4px;
+                font-size: clamp(24px, 7.5vw, 36px);
+                letter-spacing: 3px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .about-section {
+                padding: 40px 15px;
+            }
+
+            .about-content-container {
+                gap: 25px;
+            }
+
+            .section-title {
+                font-size: clamp(20px, 8vw, 32px);
+                letter-spacing: 2px;
+            }
+
+            .about-text {
+                font-size: 15px;
+                line-height: 1.7;
+            }
+
+            .features-list li {
+                font-size: 15px;
             }
         }
 
@@ -285,21 +373,22 @@
         .my-work-section .section-title {
             color: var(--dark);
             font-weight: 900;
-            font-size: 3vw;
+            font-size: clamp(24px, 4vw, 48px);
             margin: 0 0 40px 0;
             text-transform: uppercase;
-            letter-spacing: 5px;
+            letter-spacing: 4px;
             text-align: center;
         }
 
         /* app-grid: uygulamalar alt alta */
         .app-grid-container {
             width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
             display: flex;
             flex-direction: column;
             gap: 30px;
             align-items: stretch;
-            /* app-column full-width */
             padding: 0 20px;
         }
 
@@ -307,12 +396,18 @@
         .app-column {
             width: 100%;
             background: #fff;
-            border-radius: 14px;
-            padding: 20px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 16px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .app-column:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
         }
 
         /* header: ikon + isim + rating */
@@ -320,90 +415,93 @@
             display: flex;
             align-items: center;
             gap: 16px;
-            width: 100%
+            width: 100%;
         }
 
         .app-icon {
             width: 64px;
             height: 64px;
-            border-radius: 12px;
+            border-radius: 14px;
             object-fit: cover;
-            flex-shrink: 0
+            flex-shrink: 0;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
         }
 
         .app-info {
             display: flex;
-            flex-direction: column
+            flex-direction: column;
+            flex-grow: 1;
         }
 
         .app-name {
             font-weight: 700;
-            font-size: 1.05rem
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+            color: var(--dark);
         }
 
         .app-rating {
             display: flex;
             align-items: center;
             gap: 8px;
-            color: #888
+            color: #666;
+            font-size: 0.9rem;
         }
 
         .rating-stars {
             color: var(--yellow);
-            font-size: 1.05rem
+            font-size: 1.1rem;
         }
 
         /* ---------- Carousel container styling ---------- */
-        /* görsellerin arka planını isteğe göre değiştir */
         .storefront-wrapper {
-            background: #f0f0f0;
-            /* burayı istediğin renge değiştir */
-            border-radius: 12px;
-            padding: 14px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 16px;
+            padding: 16px;
+            box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.05);
         }
 
         /* carousel kendisi (kaydırılabilir alan) */
         .storefront-container {
             display: flex;
-            gap: 18px;
-            /* görseller arası boşluk */
+            gap: 16px;
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
             scroll-snap-type: x mandatory;
             scroll-behavior: smooth;
-            padding: 6px;
+            padding: 8px;
         }
 
         /* telefon oranı 9:16, responsive width ve min-width */
         .storefront-image {
             aspect-ratio: 9/16;
             width: 220px;
-            /* masaüstü görsel genişliği */
-            min-width: 160px;
-            border-radius: 10px;
+            min-width: 180px;
+            border-radius: 12px;
             object-fit: cover;
             flex-shrink: 0;
             scroll-snap-align: center;
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
-            transition: transform .25s ease;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
         }
 
         .storefront-image:hover {
-            transform: scale(1.03)
+            transform: scale(1.05);
         }
 
         /* fallback-card (eğer hiç görsel yoksa) */
         .storefront-empty {
             width: 220px;
-            min-width: 160px;
+            min-width: 180px;
             height: calc(220px * (16/9));
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 10px;
-            background: linear-gradient(180deg, #e9e9e9, #f5f5f5);
+            border-radius: 12px;
+            background: linear-gradient(135deg, #e9ecef, #f8f9fa);
             color: #666;
             font-weight: 600;
+            border: 2px dashed #ccc;
         }
 
         /* Loading / progress */
@@ -412,16 +510,23 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 40px 0
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .loading-text {
+            margin-bottom: 20px;
+            color: var(--dark);
+            font-weight: 500;
         }
 
         .progress-bar {
-            width: 220px;
-            height: 6px;
-            background: #222;
-            border-radius: 6px;
+            width: 240px;
+            height: 8px;
+            background: #e9ecef;
+            border-radius: 8px;
             overflow: hidden;
-            position: relative
+            position: relative;
         }
 
         .progress-bar::after {
@@ -431,77 +536,201 @@
             top: 0;
             height: 100%;
             width: 45%;
-            background: var(--yellow);
-            animation: move-progress 1.4s linear infinite
+            background: linear-gradient(90deg, var(--yellow), #ffd700);
+            animation: move-progress 1.8s ease-in-out infinite;
+            border-radius: 8px;
         }
 
         @keyframes move-progress {
             0% {
-                transform: translateX(-120%)
+                transform: translateX(-120%);
             }
-
             100% {
-                transform: translateX(220%)
+                transform: translateX(280%);
             }
         }
 
-        /* küçük ekranlar için */
-        @media(max-width:900px) {
-            .app-icon {
-                width: 56px;
-                height: 56px
+        /* Mobil uyumlu düzenlemeler */
+        @media (max-width: 768px) {
+            .my-work-section {
+                padding: 50px 15px;
             }
 
-            .storefront-image {
-                width: 180px;
-                min-width: 140px
+            .my-work-section .section-title {
+                font-size: clamp(20px, 6vw, 36px);
+                letter-spacing: 3px;
+                margin-bottom: 30px;
             }
 
-            .storefront-empty {
-                width: 180px;
-                min-width: 140px;
-                height: calc(180px * (16/9))
-            }
-        }
-
-        @media(max-width:520px) {
-            .container {
-                padding: 0 20px
-            }
-
-            .storefront-image {
-                width: 70vw;
-                min-width: 140px
-            }
-
-            .storefront-empty {
-                width: 70vw;
-                min-width: 140px;
-                height: calc(70vw * (16/9))
-            }
-
-            .first-name,
-            .last-name {
-                font-size: 12vw
+            .app-grid-container {
+                padding: 0 10px;
+                gap: 25px;
             }
 
             .app-column {
-                padding: 16px
+                padding: 20px;
+                border-radius: 14px;
             }
 
-            .my-work-section {
-                padding: 40px 10px
+            .app-icon {
+                width: 56px;
+                height: 56px;
+                border-radius: 12px;
+            }
+
+            .app-name {
+                font-size: 1rem;
+            }
+
+            .storefront-wrapper {
+                padding: 14px;
+                border-radius: 14px;
+            }
+
+            .storefront-container {
+                gap: 14px;
+                padding: 6px;
+            }
+
+            .storefront-image {
+                width: 180px;
+                min-width: 150px;
+                border-radius: 10px;
+            }
+
+            .storefront-empty {
+                width: 180px;
+                min-width: 150px;
+                height: calc(180px * (16/9));
+                border-radius: 10px;
+            }
+
+            .loading-container {
+                padding: 40px 15px;
+            }
+
+            .progress-bar {
+                width: 200px;
             }
         }
 
-        /* fotoğrafların scrollbar görünümü için küçük stil */
+        @media (max-width: 480px) {
+            .my-work-section {
+                padding: 40px 10px;
+            }
+
+            .my-work-section .section-title {
+                font-size: clamp(18px, 7vw, 32px);
+                letter-spacing: 2px;
+            }
+
+            .app-grid-container {
+                padding: 0 5px;
+                gap: 20px;
+            }
+
+            .app-column {
+                padding: 16px;
+                border-radius: 12px;
+            }
+
+            .app-header {
+                gap: 12px;
+            }
+
+            .app-icon {
+                width: 48px;
+                height: 48px;
+                border-radius: 10px;
+            }
+
+            .app-name {
+                font-size: 0.95rem;
+            }
+
+            .app-rating {
+                font-size: 0.85rem;
+            }
+
+            .storefront-wrapper {
+                padding: 12px;
+                border-radius: 12px;
+            }
+
+            .storefront-container {
+                gap: 12px;
+                padding: 4px;
+            }
+
+            .storefront-image {
+                width: calc(75vw - 40px);
+                min-width: 140px;
+                max-width: 200px;
+                border-radius: 8px;
+            }
+
+            .storefront-empty {
+                width: calc(75vw - 40px);
+                min-width: 140px;
+                max-width: 200px;
+                height: calc((75vw - 40px) * (16/9));
+                border-radius: 8px;
+                font-size: 0.9rem;
+            }
+
+            .loading-container {
+                padding: 30px 10px;
+            }
+
+            .loading-text {
+                font-size: 0.9rem;
+            }
+
+            .progress-bar {
+                width: 180px;
+                height: 6px;
+            }
+        }
+
+        /* Scrollbar styling for better mobile experience */
         .storefront-container::-webkit-scrollbar {
-            height: 8px
+            height: 6px;
+        }
+
+        .storefront-container::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.05);
+            border-radius: 6px;
         }
 
         .storefront-container::-webkit-scrollbar-thumb {
-            background: rgba(0, 0, 0, 0.12);
-            border-radius: 8px
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 6px;
+        }
+
+        .storefront-container::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        /* Touch improvements */
+        .icon-link,
+        .storefront-image {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* Smooth scrolling for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Loading animation improvements */
+        @media (prefers-reduced-motion: reduce) {
+            .scroll-down {
+                animation: none;
+            }
+            
+            .progress-bar::after {
+                animation: none;
+            }
         }
     </style>
 </head>
