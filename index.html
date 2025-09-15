@@ -955,6 +955,37 @@
 
         // Başlat
         document.addEventListener('DOMContentLoaded', initAllApps);
+
+        function createAppColumn(app) {
+            // screenshot'ları kullan; yoksa artwork fallback
+            const screenshots = (app.screenshotUrls && app.screenshotUrls.length) ? app.screenshotUrls : (app.artworkUrl512 ? [app.artworkUrl512] : []);
+            const screenshotsHtml = (screenshots.length > 0)
+                ? screenshots.map(url => `<img loading="lazy" src="${url}" class="storefront-image" alt="${escapeHtml(app.trackName)} screenshot">`).join('')
+                : `<div class="storefront-empty">No screenshots</div>`;
+
+            const rating = (typeof app.averageUserRating === 'number') ? Number(app.averageUserRating).toFixed(2) : '0';
+
+            return `
+    <a href="${escapeAttr(app.trackViewUrl)}" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;">
+      <div class="app-column" data-appid="${escapeHtml(app.trackId || '')}">
+        <div class="app-header">
+          <img src="${escapeAttr(app.artworkUrl512 || app.artworkUrl100 || '')}" class="app-icon" alt="${escapeAttr(app.trackName || '')}">
+          <div class="app-info">
+            <div class="app-name">${escapeHtml(app.trackName || 'Uygulama İsmi')}</div>
+            <div class="app-rating"><span class="rating-stars">⭐</span> ${rating}</div>
+          </div>
+        </div>
+
+        <div class="storefront-wrapper">
+          <div class="storefront-container">
+            ${screenshotsHtml}
+          </div>
+        </div>
+      </div>
+    </a>
+  `;
+        }
+
     </script>
 
 </body>
