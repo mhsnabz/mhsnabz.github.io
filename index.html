@@ -790,6 +790,37 @@
                 animation: none;
             }
         }
+
+
+        /* FOOTER */
+        .footer {
+            width: 100%;
+            background-color: var(--yellow);
+            /* sarı arka plan */
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 24px;
+            /* ikonlar arası boşluk */
+        }
+
+        .footer-icon {
+            color: #000;
+            /* ikonlar siyah */
+            font-size: 1.5rem;
+            transition: transform 0.2s ease, color 0.2s ease;
+        }
+
+        .footer-icon:hover {
+            transform: scale(1.2);
+            color: #333;
+            /* hover’da biraz koyulaşır */
+        }
     </style>
 </head>
 
@@ -989,5 +1020,14 @@
     </script>
 
 </body>
+<footer class="footer">
+    <div class="footer-container">
+        <a class="icon-link" href="tel:+905459445285"><i class="fas fa-phone"></i></a>
+        <a class="icon-link" href="mailto:abuzeyitoglumahsun@gmail.com"><i class="fas fa-envelope"></i></a>
+        <a class="icon-link" href="https://www.linkedin.com/in/mahsuniabuzeyitoglu" target="_blank"><i
+                class="fab fa-linkedin-in"></i></a>
+        <a class="icon-link" href="https://github.com/mhsnabz" target="_blank"><i class="fab fa-github"></i></a>
+    </div>
+</footer>
 
 </html>
